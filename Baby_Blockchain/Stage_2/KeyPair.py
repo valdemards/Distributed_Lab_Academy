@@ -16,5 +16,11 @@ class KeyPair():
         print(self.PublicKey.save_pkcs1(("PEM")).decode())
         print(self.__PrivateKey.save_pkcs1(("PEM")).decode())
 
+    def toString(self):
+        return f"""{self.__PrivateKey.save_pkcs1(("PEM")).decode()}
+{self.PublicKey.save_pkcs1(("PEM")).decode()}"""
+
+
 new_keypair = KeyPair().genKeyPair()
 new_keypair.printKeyPair()
+print(new_keypair.toString())
