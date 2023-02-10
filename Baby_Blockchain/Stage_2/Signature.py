@@ -17,10 +17,10 @@ class Signature():
         print(signature)
 
 
-key_pair = rsa.newkeys(1024)
+key_pair = rsa.newkeys(512)
 public_key = key_pair[0]
 private_key = key_pair[1]
-data = 'Hello'
+data = 'Hello cryptography!'
 signature = Signature.signData(private_key, data)
 print(Signature.verifySignature(signature, data, public_key))
 Signature.printSignature(signature)
