@@ -1,6 +1,7 @@
 Within stage 2 "Baby Blockchain task" I created KeyPair and Signature classes,
 using python and rsa library (pip3 install rsa).
-'''
+
+```
 C:\Python310\python.exe D:/Trainings/IT/Distributed_Lab_Academy/Distributed_Lab_Academy/Baby_Blockchain/Stage_2/KeyPair.py
 -----BEGIN RSA PUBLIC KEY-----
 MAoCAwCBZwIDAQAB
@@ -20,7 +21,7 @@ MAoCAwCBZwIDAQAB
 
 
 Process finished with exit code 0
-'''
+```
 
 
 
