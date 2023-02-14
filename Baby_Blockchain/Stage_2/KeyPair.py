@@ -8,7 +8,7 @@ class KeyPair:
         self.__private_key = rsa.PrivateKey
 
     def gen_key_pair(self):
-        key_pair = rsa.newkeys(2048)
+        key_pair = rsa.newkeys(32)
         self.public_key = key_pair[0]
         self.__private_key = key_pair[1]
         return (self)

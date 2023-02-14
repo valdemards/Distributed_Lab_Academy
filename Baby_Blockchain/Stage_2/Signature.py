@@ -5,7 +5,7 @@ class Signature:
 
     def sign_data(private_key, data):
         signature = rsa.sign(data.encode(), private_key, "SHA-256")
-        return (signature)
+        return signature
 
     def verify_signature(signature, data, public_key):
         try:
@@ -27,7 +27,9 @@ key_pair = rsa.newkeys(512)
 public_key = key_pair[0]
 private_key = key_pair[1]
 data = 'Hello cryptography!'
+print(public_key)
 signature = Signature.sign_data(private_key, data)
+
 
 print('Testing positive case of verifying signature')
 print(Signature.verify_signature(signature, data, public_key))
