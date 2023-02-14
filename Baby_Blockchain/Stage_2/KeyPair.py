@@ -8,7 +8,7 @@ class KeyPair:
         self.__private_key = rsa.PrivateKey
 
     def gen_key_pair(self):
-        key_pair = rsa.newkeys(16)
+        key_pair = rsa.newkeys(2048)
         self.public_key = key_pair[0]
         self.__private_key = key_pair[1]
         return (self)
@@ -22,6 +22,6 @@ class KeyPair:
 {self.public_key.save_pkcs1(("PEM")).decode()}"""
 
 
-new_keypair = KeyPair().gen_key_pair()
-new_keypair.print_key_pair()
-print(new_keypair.to_string())
+# new_keypair = KeyPair().gen_key_pair()
+# new_keypair.print_key_pair()
+# print(new_keypair.to_string())
