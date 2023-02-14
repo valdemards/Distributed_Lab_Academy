@@ -40,28 +40,28 @@ class Operation:
         print('Signature ', self.signature)
 
 
-# sender_key_pair = rsa.newkeys(512)
-# sender_public_key = sender_key_pair[0]
-# sender_private_key = sender_key_pair[1]
-#
-# receiver_key_pair = rsa.newkeys(512)
-# receiver_public_key = receiver_key_pair[0]
-# receiver_private_key = receiver_key_pair[1]
-#
-#
-# # Creating new accounts:
-# sender_account = Account.Account().create_account(sender_public_key)
-# sender_account.update_balance(1)
-# receiver_account = Account.Account().create_account(receiver_public_key)
-# receiver_account.update_balance(0)
-#
-# amount = 1
-# # Creating signature:
-# sender_signature = Signature.Signature.sign_data(sender_private_key, str(amount))
-#
-# # Tests:
-#
-# operation_1 = Operation().create_operation(sender_account, receiver_account, amount, sender_signature)
-# print(operation_1.to_string())
-# # operation_1.print()
-# print(operation_1.verify_operation(sender_signature, amount))
+sender_key_pair = rsa.newkeys(512)
+sender_public_key = sender_key_pair[0]
+sender_private_key = sender_key_pair[1]
+
+receiver_key_pair = rsa.newkeys(512)
+receiver_public_key = receiver_key_pair[0]
+receiver_private_key = receiver_key_pair[1]
+
+
+# Creating new accounts:
+sender_account = Account.Account().create_account(sender_public_key)
+sender_account.update_balance(1)
+receiver_account = Account.Account().create_account(receiver_public_key)
+receiver_account.update_balance(0)
+
+amount = 1
+# Creating signature:
+sender_signature = Signature.Signature.sign_data(sender_private_key, str(amount))
+
+# Tests:
+
+operation_1 = Operation().create_operation(sender_account, receiver_account, amount, sender_signature)
+print(operation_1.to_string())
+# operation_1.print()
+print(operation_1.verify_operation(sender_signature, amount))

@@ -26,17 +26,17 @@ class Account:
 
     def print(self):
         print('Current balance: ', self.balance)
-        print('Public key; ' + self.public_key.save_pkcs1("PEM").decode())
+        print('Public key: ' + self.public_key.save_pkcs1("PEM").decode())
 
 
 # Creating public key:
-# key_pair_1 = KeyPair.KeyPair().gen_key_pair()
-# public_key_1= key_pair_1.public_key
+key_pair_1 = KeyPair.KeyPair().gen_key_pair()
+public_key_1= key_pair_1.public_key
 
 # Creating new account:
-# test_account = Account().create_account(public_key_1)
-# test_account.update_balance(5)
+test_account = Account().create_account(public_key_1)
+test_account.update_balance(5)
 
 # print(test_account.get_balance())
 # print(test_account.to_string())
-# test_account.print()
+test_account.print()
