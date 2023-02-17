@@ -1,5 +1,4 @@
 import rsa
-from Stage_2 import KeyPair
 
 
 class Account:
@@ -29,14 +28,14 @@ class Account:
         print('Public key: ' + self.public_key.save_pkcs1("PEM").decode())
 
 
-# Creating public key:
-key_pair_1 = KeyPair.KeyPair().gen_key_pair()
-public_key_1= key_pair_1.public_key
+with open(r"D:\Trainings\IT\Distributed_Lab_Academy\Distributed_Lab_Academy\Baby_Blockchain\Stage_2\public_key.pem", "rb") as f:
+    public_key = rsa.PublicKey.load_pkcs1((f.read()))
 
 # Creating new account:
-test_account = Account().create_account(public_key_1)
+test_account = Account().create_account(public_key)
 test_account.update_balance(5)
 
-# print(test_account.get_balance())
-# print(test_account.to_string())
+# Tests
+print(test_account.get_balance())
+print(test_account.to_string())
 test_account.print()
