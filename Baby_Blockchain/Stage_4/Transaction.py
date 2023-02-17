@@ -1,5 +1,4 @@
 import rsa
-from Stage_2 import KeyPair
 from Stage_2 import Signature
 from Stage_3 import Account
 from Stage_4 import Operation
@@ -27,35 +26,35 @@ class Transaction:
         print('Nonce ', self.nonce)
 
 
-sender_key_pair = rsa.newkeys(512)
-sender_public_key = sender_key_pair[0]
-sender_private_key = sender_key_pair[1]
-sender_account = Account.Account().create_account(sender_public_key)
-sender_account.update_balance(1)
-
-receiver_key_pair_1 = rsa.newkeys(512)
-receiver_public_key_1 = receiver_key_pair_1[0]
-receiver_private_key_1 = receiver_key_pair_1[1]
-receiver_account_1 = Account.Account().create_account(receiver_public_key_1)
-receiver_account_1.update_balance(0)
-
-receiver_key_pair_2 = rsa.newkeys(512)
-receiver_public_key_2 = receiver_key_pair_2[0]
-receiver_private_key_2 = receiver_key_pair_2[1]
-receiver_account_2 = Account.Account().create_account(receiver_public_key_2)
-receiver_account_2.update_balance(0)
-# Creating new accounts:
-
-amount = 1
-# Creating signature:
-sender_signature = Signature.Signature.sign_data(sender_private_key, str(amount))
-
-# Tests:
-operation_1 = Operation.Operation().create_operation(sender_account, receiver_account_1, amount, sender_signature)
-operation_2 = Operation.Operation().create_operation(sender_account, receiver_account_2, amount, sender_signature)
-
-operations = [operation_1, operation_2]
-transaction_1 = Transaction().create_transaction(sender_account, operations)
-
-print(transaction_1.to_string())
-transaction_1.print()
+# # Creating key pairs and account:
+# sender_key_pair = rsa.newkeys(2048)
+# sender_public_key = sender_key_pair[0]
+# sender_private_key = sender_key_pair[1]
+# sender_account = Account.Account().create_account(sender_public_key)
+# sender_account.update_balance(2)
+#
+# receiver_key_pair_1 = rsa.newkeys(2048)
+# receiver_public_key_1 = receiver_key_pair_1[0]
+# receiver_private_key_1 = receiver_key_pair_1[1]
+# receiver_account_1 = Account.Account().create_account(receiver_public_key_1)
+# receiver_account_1.update_balance(0)
+#
+# receiver_key_pair_2 = rsa.newkeys(2048)
+# receiver_public_key_2 = receiver_key_pair_2[0]
+# receiver_private_key_2 = receiver_key_pair_2[1]
+# receiver_account_2 = Account.Account().create_account(receiver_public_key_2)
+# receiver_account_2.update_balance(0)
+#
+# # Creating signature:
+# amount =1
+# sender_signature = Signature.Signature.sign_data(sender_private_key, str(amount))
+#
+# # Tests:
+# operation_1 = Operation.Operation().create_operation(sender_account, receiver_account_1, amount, sender_signature)
+# operation_2 = Operation.Operation().create_operation(sender_account, receiver_account_2, amount, sender_signature)
+#
+# operations = [operation_1, operation_2]
+# transaction_1 = Transaction().create_transaction(sender_account, operations)
+#
+# print(transaction_1.to_string())
+# transaction_1.print()
